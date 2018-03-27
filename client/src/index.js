@@ -9,6 +9,7 @@ import {createStore,applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 
+//All Reducers import
 import allReducers from './reducers/index';
 
 //Import actions
