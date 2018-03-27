@@ -1,0 +1,21 @@
+{
+  "name": "portal",
+  "version": "1.0.0",
+  "description": "A simple portal",
+  "scripts": {
+    "start": "concurrently \"nodemon server.js\" \"cd client && npm start\""
+  },
+  "author": "Swapnil Telkar",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "concurrently": "^3.5.1",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "mongoose": "^5.0.11",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.2"
+  }
+}

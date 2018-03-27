@@ -1,0 +1,1 @@
+export const GET_DISCUSSIONS = "GET_DISCUSSIONS";
