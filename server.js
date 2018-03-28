@@ -13,7 +13,7 @@ const router = express.Router();
 
 
 //Database connection
-mongoose.connect("mongodb://localhost:27018/portal");
+mongoose.connect("mongodb://snportal:asdfgh12345@ds127139.mlab.com:27139/portaldata");
 const db = mongoose.connection;
 
 db.once('open',function(){
