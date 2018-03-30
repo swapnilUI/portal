@@ -1,3 +1,14 @@
-h2 {
-	color:red
+.post-list{
+	list-style:none;
+	border:1px solid #ffdead;
+	margin:20px 10px;
+	padding:5px 15px;
+}
+.comments{
+	padding-left:55px;
+	color:#337ab7;
+}
+.comment-wrapper{
+    background: whitesmoke;
+    padding: 5px 7px;
 }

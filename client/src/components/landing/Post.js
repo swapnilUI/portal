@@ -8,13 +8,23 @@ class Post extends Component {
 
   render(){
     return (
-      <li>
-      <h3>{this.props.post.heading}</h3>
+      <li className="post-list">
+      <h4>{this.props.post.heading}</h4>
       <p>{this.props.post.description}</p>
-      <small>posted by: {this.props.post.author}</small>
+      <p>
+        <small>posted by: {this.props.post.author}</small>
+        <span className="comments">Comments</span>
+      </p>
+      {this.props.post.comments.map((comment) =>
+      <p className="comment-wrapper">
+        <span ><small>{comment.posted_by} : </small></span>
+        <span >{comment.comment}</span>
+      </p>
+      )}
       </li>
     )
   }
 }
 
 export default Post;
+
