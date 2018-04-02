@@ -14,7 +14,7 @@ class Header extends Component {
           </Col>
           <Col xs={6} md={2} ls={2}>
           <aside className="top-links">
-            <Link to="/login">Login</Link> | <a href="#">Register</a>
+            <Link to="/login">Login</Link> | <Link to="/register">Register</Link>
           </aside>
           </Col>
         </Row>

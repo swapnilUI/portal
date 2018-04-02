@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Routes from './Routes';
+import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 //Redux store
@@ -22,7 +22,7 @@ const store = createStore(
 store.dispatch(getDiscussions());
 ReactDOM.render(
   <Provider store={store}>
-    <Routes />
+    <App  />
   </Provider>
   , document.getElementById('root'));
 registerServiceWorker();
