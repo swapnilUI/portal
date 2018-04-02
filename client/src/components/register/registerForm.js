@@ -9,28 +9,44 @@ class SignUpForm extends Component{
   constructor(props){
     super(props);
 
-    this.state ={
-      name:"",
-      email:"",
-      username:"",
-      password:"",
-      erros:{
+    this.state = {
+      userData:{
+        name:"",
+        email:"",
+        username:"",
+        password:"",
+      },
+      errors:{
         nameErr:"",
         emailErr:"",
         usernameErr:"",
         passwordErr:""
       }
     }
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+  onChange(e){
+    this.setState({
+      userData:{
+        ...this.state.userData,
+        [e.target.name]:e.target.value
+      }
+    })
+  }
+  onSubmit(e){
+    e.preventDefault();
+    this.props.registerSubmit(this.state.userData);
   }
   renderForm(){
     return(
-      <Form horizontal>
+      <Form horizontal onSubmit = {this.onSubmit}>
           <FormGroup controlId="name">
               <Col componentClass={ControlLabel} sm={4}>
                 Name
               </Col>
               <Col sm={8}>
-              <FormControl type="text" placeholder="Name" />
+              <FormControl type="text" onChange={this.onChange} name="name" value={this.state.userData.name} placeholder="Name" />
               </Col>
           </FormGroup>
           <Row>
@@ -49,7 +65,7 @@ class SignUpForm extends Component{
               Email
               </Col>
               <Col sm={8}>
-              <FormControl type="email" placeholder="email" />
+              <FormControl type="email" name="email" onChange={this.onChange} value={this.state.userData.email} placeholder="email" />
               </Col>
           </FormGroup>
           <FormGroup controlId="username">
@@ -57,7 +73,7 @@ class SignUpForm extends Component{
               User name
               </Col>
               <Col sm={8}>
-              <FormControl type="text" placeholder="User name" />
+              <FormControl type="text" name="username" onChange={this.onChange} value={this.state.userData.username} placeholder="User name" />
               </Col>
           </FormGroup>
           <FormGroup controlId="password">
@@ -65,7 +81,7 @@ class SignUpForm extends Component{
               Password
               </Col>
               <Col sm={8}>
-              <FormControl type="password" placeholder="Password" />
+              <FormControl type="password" name="password" onChange={this.onChange} value={this.state.userData.password} placeholder="Password" />
               </Col>
           </FormGroup>
           <FormGroup controlId="confirmpassword">
