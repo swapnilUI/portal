@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 class Landing extends Component {
   render() {
     return (
-      <div className="container">
+      <div>
         <h2>Active Discussions</h2>
         <PostsList posts = {this.props.posts} />
       </div>

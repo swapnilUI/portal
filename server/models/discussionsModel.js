@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-var discussionsSchema = new Schema({
+const discussionsSchema = new Schema({
   heading : String,
   description: String,
   author: String,
@@ -13,6 +13,6 @@ var discussionsSchema = new Schema({
   }]
 
 });
-var Discussion = mongoose.model('Discussion', discussionsSchema);
+const Discussion = mongoose.model('Discussion', discussionsSchema);
 
 module.exports = Discussion;

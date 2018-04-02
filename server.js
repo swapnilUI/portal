@@ -1,19 +1,21 @@
 
 const express = require('express');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const config = require('./config.js');
 const path = require('path');
 const mongoose = require('mongoose');
 const routes = require('./server/routes/index.route');
 const cors = require('cors');
 const app = express();
+const passport = require('passport');
 
 app.use(express.static(path.join(__dirname, 'build')));
 
 const router = express.Router();
-
+require("./passport")(passport);
 
 //Database connection
-mongoose.connect("mongodb://snportal:asdfgh12345@ds127139.mlab.com:27139/portaldata");
+mongoose.connect(config.db);
 const db = mongoose.connection;
 
 db.once('open',function(){
@@ -32,7 +34,13 @@ app.use(cors({
   credentials: true
 }));
 
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use('/api',routes);
 // all of our routes will be prefixed with /api
-app.use('/api', routes);
+
 
 app.listen(process.env.PORT || 8080);
