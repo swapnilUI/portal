@@ -8,14 +8,21 @@ import {registerSubmit} from '../../actions/register';
 class Register extends Component{
 
   render(){
+
     const {registerSubmit} = this.props;
     return(
       <div className="signUpPage">
       <h2>Register</h2>
-      <RegisterForm registerSubmit={registerSubmit} />
+      <RegisterForm registerSubmit={registerSubmit} signupMessage={this.props.signupMessage} resetForm={this.props.signupSuccess}/>
       </div>
     )
   }
 }
+const mapStateToProps = state =>{
+  return{
+    signupMessage:state.register.length === 0 ? "":state.register.data.message,
+    signupSuccess:state.register.length === 0 ? "":state.register.data.success
+  }
+}
 
-export default connect((state)=>{return {}}, {registerSubmit})(Register);
+export default connect(mapStateToProps, {registerSubmit})(Register);

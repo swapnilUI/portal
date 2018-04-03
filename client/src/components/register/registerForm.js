@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { HelpBlock,
   FormGroup,
   FormControl,
-  ControlLabel, Col, Form, Panel, Button, Row} from 'react-bootstrap';
+  ControlLabel, Col, Form, Panel, Button, Row, Alert} from 'react-bootstrap';
 
 
 class SignUpForm extends Component{
@@ -36,11 +36,33 @@ class SignUpForm extends Component{
   }
   onSubmit(e){
     e.preventDefault();
-    this.props.registerSubmit(this.state.userData);
+    this.props.registerSubmit(this.state.userData).then(()=>{
+      this.setState({
+        userData:{
+          name:"",
+          email:"",
+          username:"",
+          password:"",
+        },
+        errors:{
+          nameErr:"",
+          emailErr:"",
+          usernameErr:"",
+          passwordErr:""
+        }
+      });
+    });
   }
+
   renderForm(){
     return(
       <Form horizontal onSubmit = {this.onSubmit}>
+          {
+            this.props.signupMessage === "" ?"":
+            <Alert bsStyle="success">
+                <strong>{this.props.signupMessage}</strong>
+            </Alert>
+          }
           <FormGroup controlId="name">
               <Col componentClass={ControlLabel} sm={4}>
                 Name
