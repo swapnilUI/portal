@@ -19,6 +19,7 @@
     "path": "^0.12.7"
   },
   "devDependencies": {
-    "nodemon": "^1.17.2"
+    "nodemon": "^1.17.2",
+    "redux-devtools-extension": "^2.13.2"
   }
 }

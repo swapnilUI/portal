@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import PropTypes from 'prop-types';
-import Post from './Post';
+
+import './Landing.scss';
 
 class PostsList extends Component{
   constructor(props){
@@ -10,7 +11,20 @@ class PostsList extends Component{
     render(){
       return(<ul>
         {this.props.posts.map((post,index) =>
-            <Post key={index} post={post} />
+          <li key={post.heading} className="post-list">
+          <h4>{post.heading}</h4>
+          <p>{post.description}</p>
+          <p>
+            <small>posted by: {post.author}</small>
+            <span className="comments">Comments</span>
+          </p>
+          {post.comments.map((comment) =>
+          <p key={comment.posted_by} className="comment-wrapper">
+            <span ><small>{comment.posted_by} : </small></span>
+            <span >{comment.comment}</span>
+          </p>
+          )}
+          </li>
         )}
         </ul>
       )

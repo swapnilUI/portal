@@ -1,17 +1,29 @@
 #header{
   background: #ff5252;
   margin-bottom: 20px;
+
   h1 {
     margin: 10px 0;
-    color:#fff;
+
+    a {
+      color:#fff;
+      &:hover{
+        text-decoration: none;
+      }
+    }
+  }
+  .welcomeText{
+    margin-right: 20px
   }
   .top-links{
       padding: 20px 20px 0;
       border-radius: 0 0 10px 10px;
       color:#fff;
       display: inline-block;
+      text-align: right;
       a {
-        color:#fff
+        color:#fff;
+        font-weight: bold;
       }
   }
 

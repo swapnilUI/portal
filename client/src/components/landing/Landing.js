@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import style from './Landing.scss';
+import './Landing.scss';
 import PostsList from './PostsList';
 import {connect} from 'react-redux';
 
@@ -15,7 +15,6 @@ class Landing extends Component {
 }
 
 const mapStateToProps = state =>{
-  console.log("state", state.discussions);
   return{
     posts: state.discussions
   }

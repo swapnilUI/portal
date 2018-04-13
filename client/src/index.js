@@ -14,10 +14,10 @@ import allReducers from './reducers/index';
 
 //Import actions
 import {getDiscussions} from './actions/discussions';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 const store = createStore(
-  allReducers,
-  applyMiddleware(thunk)
+  allReducers,composeWithDevTools(applyMiddleware(thunk))
 );
 store.dispatch(getDiscussions());
 ReactDOM.render(

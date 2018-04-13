@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import RegisterForm from './registerForm';
-import Style from './register.scss'
+import  './register.scss'
 import {connect} from 'react-redux';
 import {registerSubmit} from '../../actions/register';
 

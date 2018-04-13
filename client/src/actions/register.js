@@ -1,8 +1,7 @@
 import axios from 'axios';
 import {REGISTER_SUBMIT} from '../actionTypes';
 
-
-export const registerSubmitAction = (res)=>{
+ const registerSubmitAction = (res)=>{
   return {
     type:REGISTER_SUBMIT,
     payload:res

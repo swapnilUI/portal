@@ -36,21 +36,20 @@ class SignUpForm extends Component{
   }
   onSubmit(e){
     e.preventDefault();
-    this.props.registerSubmit(this.state.userData).then(()=>{
-      this.setState({
-        userData:{
-          name:"",
-          email:"",
-          username:"",
-          password:"",
-        },
-        errors:{
-          nameErr:"",
-          emailErr:"",
-          usernameErr:"",
-          passwordErr:""
-        }
-      });
+    this.props.registerSubmit(this.state.userData);
+    this.setState({
+      userData:{
+        name:"",
+        email:"",
+        username:"",
+        password:"",
+      },
+      errors:{
+        nameErr:"",
+        emailErr:"",
+        usernameErr:"",
+        passwordErr:""
+      }
     });
   }
 
@@ -71,16 +70,7 @@ class SignUpForm extends Component{
               <FormControl type="text" onChange={this.onChange} name="name" value={this.state.userData.name} placeholder="Name" />
               </Col>
           </FormGroup>
-          <Row>
-          <Col sm={4}>
 
-          </Col>
-          <Col sm={8}>
-          <HelpBlock>
-          <p className="text-danger">test</p>
-        </HelpBlock>
-          </Col>
-          </Row>
 
           <FormGroup controlId="email">
               <Col componentClass={ControlLabel} sm={4}>

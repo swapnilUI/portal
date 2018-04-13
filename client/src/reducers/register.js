@@ -4,7 +4,7 @@ const register = (state = [], action) => {
     switch (action.type) {
       case REGISTER_SUBMIT:
             return action.payload;
-        break;
+        
       default:
           return state;
     }
