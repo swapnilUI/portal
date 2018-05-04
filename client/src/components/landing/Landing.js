@@ -4,6 +4,7 @@ import PostsList from './PostsList';
 import {connect} from 'react-redux';
 
 class Landing extends Component {
+  
   render() {
     return (
       <div>

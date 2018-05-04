@@ -15,6 +15,7 @@ class Header extends Component {
   }
 
   renderComp(){
+  
     if(localStorage.loggedInUser && this.state.username === ""){
       let userData = JSON.parse(localStorage.loggedInUser);
       this.setState({

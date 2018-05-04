@@ -62,7 +62,7 @@ module.exports.login = function (req,res){
           console.log(user);
           if(isMatch){
             const token = jwt.sign(user.toJSON(), config.secret, {expiresIn:6000000});
-              res.json({ success:true, token:"JWT "+token, user:{
+              res.json({ success:true, token:"Bearer "+token, user:{
                   id:user._id,
                   email:user.email,
                   name:user.name
