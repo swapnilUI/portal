@@ -12,6 +12,10 @@ class Post extends Component{
   }
 
   clickShowComments(e){
+    const {post} = this.props;
+    if(post.comments.length > 0 || localStorage.loggedInUser ){
+      return;
+    }
     if(this.state.showComments){
       this.setState({
         showComments:false
@@ -31,7 +35,7 @@ class Post extends Component{
             <p>{post.description}</p>
             <p>
               <small>Posted by: {post.author}</small>
-              <small className="comments" onClick={post.comments.length > 0 ? this.clickShowComments:""}>Comments ({post.comments.length})</small>
+              <small className="comments" onClick={this.clickShowComments}>Comments ({post.comments.length})</small>
             </p>
           </div>
           {this.state.showComments ? <Comments postid={post._id} post={post} />:null}

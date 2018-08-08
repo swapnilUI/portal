@@ -13,13 +13,18 @@ class PostsList extends Component{
   }
 
     render(){
-
+      const {posts} = this.props;
+      const list = (<ul>
+                    {
+                      this.props.posts.map((post,index) =>
+                        <Post key={post._id} post={post} />
+                      )
+                    }
+              </ul>);
       return(
-        <ul>
-        {this.props.posts ? this.props.posts.map((post,index) =>
-          <Post key={index} post={post} />
-        ):null}
-        </ul>
+        <div>
+        {posts && list}
+        </div>
       )
     }
 }

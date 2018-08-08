@@ -4,10 +4,9 @@ import {submitComment,removeComment} from '../../actions/discussions';
 
 const CommentForm = (props)=>{
     if(localStorage.id_token){
-
       return(
           <form>
-            <textarea name="comment" onChange={props.handleChange} placeholder="Comment..."></textarea>
+            <textarea name="comment" onChange={props.handleChange} placeholder="Comment...">{props.commentvalue}</textarea>
             <button type="button" onClick={props.submitComment}>Post</button>
           </form>
         )
@@ -44,16 +43,12 @@ class Comments extends Component{
     }
   }
   removeComment(commentId){
-    this.props.removeComment(this.props.postid, commentId).then(()=>{
-      this.setState({
-          comment:""
-      })
-    });
+    this.props.removeComment(this.props.postid, commentId);
   }
   render(){
     return(
       <div className="commentsSection">
-      <CommentForm handleChange={this.onchange} submitComment={this.submitComment} />
+      <CommentForm handleChange={this.onchange} commentvalue={this.state.comment} submitComment={this.submitComment} />
         {this.props.post.comments.map((comment,index) =>
           <div key={index} className="comment-wrapper">
           {localStorage.id_token && JSON.parse(localStorage.loggedInUser).name === comment.posted_by ?<a onClick={this.removeComment.bind(null,comment._id)} className="pull-right" href="javascript:void(0)"><strong>x</strong></a>:null}

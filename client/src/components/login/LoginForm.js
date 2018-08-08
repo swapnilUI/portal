@@ -18,7 +18,6 @@ class LoginForm extends Component{
       }
     }
     this.onchange = this.onchange.bind(this);
-    this.submitLogin = this.submitLogin.bind(this);
   }
 
   onchange(e){
@@ -29,7 +28,7 @@ class LoginForm extends Component{
       }
     })
   }
-  submitLogin(e){
+  submitLogin = (e) => {
       e.preventDefault();
       if(this.state.userData.username==="" || this.state.userData.password ===""){
         this.setState({
